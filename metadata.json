@@ -1,0 +1,5 @@
+{
+  "name": "Web Traffic Insight AI",
+  "description": "An AI-powered tool to simulate website traffic analysis. Enter your domain to generate a mock analytics dashboard with real-time charts and improvement suggestions from Gemini.",
+  "requestFramePermissions": []
+}

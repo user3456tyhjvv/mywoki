@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme CSS Variables */
+:root {
+  /* Dark Theme (Keeping your existing dark theme) */
+  --bg-primary: #020024;
+  --bg-secondary: #090979;
+  --bg-gradient-start: #020024;
+  --bg-gradient-end: #090979;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  --card-bg: rgba(30, 41, 59, 0.5);
+  --card-bg-solid: #1e293b;
+  --hover-bg: rgba(51, 65, 85, 0.5);
+  --accent-bg: rgba(0, 212, 255, 0.1);
+  --accent-border: rgba(0, 212, 255, 0.3);
+  --success-bg: rgba(34, 197, 94, 0.2);
+  --success-border: rgba(34, 197, 94, 0.3);
+  --warning-bg: rgba(245, 158, 11, 0.2);
+  --warning-border: rgba(245, 158, 11, 0.3);
+  --error-bg: rgba(239, 68, 68, 0.2);
+  --error-border: rgba(239, 68, 68, 0.3);
+  
+  /* Brand Colors that work in both themes */
+  --brand-accent: #6366f1;
+  --brand-accent-hover: #4f46e5;
+  --brand-primary: #ffffff;
+  --brand-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+[data-theme="light"] {
+  /* Modern, professional light theme with better visual hierarchy */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-end: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-bg-solid: #ffffff;
+  --hover-bg: rgba(241, 245, 249, 0.8);
+  --accent-bg: rgba(99, 102, 241, 0.08);
+  --accent-border: rgba(99, 102, 241, 0.15);
+  --success-bg: rgba(34, 197, 94, 0.08);
+  --success-border: rgba(34, 197, 94, 0.15);
+  --warning-bg: rgba(245, 158, 11, 0.08);
+  --warning-border: rgba(245, 158, 11, 0.15);
+  --error-bg: rgba(239, 68, 68, 0.08);
+  --error-border: rgba(239, 68, 68, 0.15);
+  
+  /* Enhanced shadows for depth */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Apply theme variables to body */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Theme-aware classes */
+.theme-bg-primary { background-color: var(--bg-primary); }
+.theme-bg-secondary { background-color: var(--bg-secondary); }
+.theme-bg-gradient { 
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  background-attachment: fixed;
+}
+.theme-text-primary { color: var(--text-primary); }
+.theme-text-secondary { color: var(--text-secondary); }
+.theme-text-muted { color: var(--text-muted); }
+.theme-border-primary { border-color: var(--border-primary); }
+.theme-border-secondary { border-color: var(--border-secondary); }
+.theme-card-bg { 
+  background-color: var(--card-bg);
+  backdrop-filter: blur(10px);
+}
+.theme-card-bg-solid { 
+  background-color: var(--card-bg-solid);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-primary);
+}
+.theme-hover-bg:hover { background-color: var(--hover-bg); }
+.theme-accent-bg { background-color: var(--accent-bg); }
+.theme-accent-border { border-color: var(--accent-border); }
+.theme-success-bg { background-color: var(--success-bg); }
+.theme-success-border { border-color: var(--success-border); }
+.theme-warning-bg { background-color: var(--warning-bg); }
+.theme-warning-border { border-color: var(--warning-border); }
+.theme-error-bg { background-color: var(--error-bg); }
+.theme-error-border { border-color: var(--error-border); }
+
+/* Enhanced component styles for light theme */
+[data-theme="light"] {
+  /* Improved input styles */
+  input, textarea, select {
+    background-color: var(--card-bg-solid);
+    border: 1.5px solid var(--border-primary);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--brand-accent);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    outline: none;
+  }
+  
+  /* Enhanced button styles */
+  button {
+    transition: all 0.2s ease;
+  }
+  
+  /* Card enhancements */
+  .theme-card-bg, .theme-card-bg-solid {
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  
+  .theme-card-bg:hover, .theme-card-bg-solid:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+  
+  /* Navigation and header enhancements */
+  header, nav {
+    background-color: var(--card-bg-solid);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Gradient text for accents */
+  .gradient-text {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Premium badge styles */
+  .premium-badge {
+    background: var(--brand-gradient);
+    color: white;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Status indicators */
+  .status-indicator {
+    border: 2px solid var(--card-bg-solid);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* Additional utility classes for better light theme */
+.theme-shadow-sm { box-shadow: var(--shadow-sm); }
+.theme-shadow-md { box-shadow: var(--shadow-md); }
+.theme-shadow-lg { box-shadow: var(--shadow-lg); }
+.theme-shadow-xl { box-shadow: var(--shadow-xl); }
+
+.theme-rounded { border-radius: 8px; }
+.theme-rounded-lg { border-radius: 12px; }
+.theme-rounded-xl { border-radius: 16px; }
+
+.theme-transition { transition: all 0.3s ease; }
+.theme-transition-fast { transition: all 0.15s ease; }
+
+/* Focus states for accessibility */
+.theme-focus:focus {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for light theme */
+[data-theme="light"] ::-webkit-scrollbar {
+  width: 6px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 3px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Animation classes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.theme-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Glass morphism effect for premium feel */
+.theme-glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Gradient backgrounds */
+.theme-gradient-primary {
+  background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-accent-hover) 100%);
+}
+
+.theme-gradient-secondary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Text contrast utilities */
+.theme-text-high-contrast {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.theme-text-balance {
+  text-wrap: balance;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  [data-theme="light"] {
+    --card-bg: rgba(255, 255, 255, 0.98);
+  }
+}
+
+/* Print styles for light theme */
+@media print {
+  [data-theme="light"] {
+    --bg-primary: #ffffff;
+    --text-primary: #000000;
+    --card-bg-solid: #ffffff;
+  }
+  
+  .theme-card-bg, .theme-card-bg-solid {
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+  }
+}
