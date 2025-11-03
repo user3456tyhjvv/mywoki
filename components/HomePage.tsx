@@ -1342,11 +1342,11 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
           <div>
             <h4 className="text-sm font-semibold text-slate-200 mb-3 uppercase">Follow</h4>
             <div className="flex items-center gap-3">
-              <a href="#" className="p-2 rounded-md bg-white/5"><FacebookIcon className="w-5 h-5 text-slate-200" /></a>
+              <a href="https://web.facebook.com/mywoki" className="p-2 rounded-md bg-white/5"><FacebookIcon className="w-5 h-5 text-slate-200" /></a>
               <a href="https://www.linkedin.com/company/mywoki" className="p-2 rounded-md bg-white/5"><LinkedInIcon className="w-5 h-5 text-slate-200" /></a>
-              <a href="#" className="p-2 rounded-md bg-white/5"><InstagramIcon className="w-5 h-5 text-slate-200" /></a>
+              <a href="https://www.instagram.com/mywoki" className="p-2 rounded-md bg-white/5"><InstagramIcon className="w-5 h-5 text-slate-200" /></a>
               <a
-                href="https://x.com"
+                href="https://x.com/mywokiB2B"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-md bg-white/5 hover:bg-white/10 transition"

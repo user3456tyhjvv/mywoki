@@ -45,14 +45,28 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-6">
-              <a href="https://web.facebook.com/profile.php?id=61582001723440" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>
+              <a href="https://www.facebook.com/mywoki" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>
                 <FacebookIcon className="w-6 h-6" />
               </a>
-              <a href="https://www.linkedin.com/company/yourspace-analytics" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>
+              <a href="https://www.linkedin.com/company/mywoki" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>
                 <LinkedInIcon className="w-6 h-6" />
               </a>
-              <a href="https://www.instagram.com/yourspaceanalytics/" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>
+              <a href="https://www.instagram.com/mywoki" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>
                 <InstagramIcon className="w-6 h-6" />
+              </a>
+              <a
+                href="https://x.com/mywokiB2B"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-md bg-white/5 hover:bg-white/10 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1200 1227"
+                  className="w-5 h-5 fill-slate-200"
+                >
+                  <path d="M714 519L1160 0H1051L673 442 377 0H0L466 682 0 1227H109L510 755 836 1227H1200L714 519zM180 80H301L1020 1147H899L180 80z" />
+                </svg>
               </a>
             </div>
           </div>
