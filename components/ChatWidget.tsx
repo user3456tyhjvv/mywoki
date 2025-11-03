@@ -274,14 +274,26 @@ const ChatWidget: React.FC = () => {
           <div className="p-3 bg-slate-700/50 rounded-t-lg flex flex-col items-center">
             <div className="flex justify-center mb-2">
               {admins.slice(0, 3).map((admin, index) => (
-                <img
-                  key={admin.id}
-                  src={supabase.storage.from('admin-avatars').getPublicUrl(admin.avatar).data.publicUrl}
-                  alt="Admin avatar"
-                  className={`w-8 h-8 rounded-full border-2 border-slate-600 ${index > 0 ? '-ml-2' : ''} ${index === 2 ? 'opacity-50' : ''}`}
-                />
+                admin.avatar ? (
+                  <img
+                    key={admin.id}
+                    src={supabase.storage.from('admin-avatars').getPublicUrl(admin.avatar).data.publicUrl}
+                    alt="Admin avatar"
+                    className={`w-8 h-8 rounded-full border-2 border-slate-600 ${index > 0 ? '-ml-2' : ''} ${index === 2 ? 'opacity-50' : ''}`}
+                  />
+                ) : (
+                  <div
+                    key={admin.id}
+                    className={`w-8 h-8 rounded-full border-2 border-slate-600 bg-slate-600 flex items-center justify-center ${index > 0 ? '-ml-2' : ''} ${index === 2 ? 'opacity-50' : ''}`}
+                  >
+                    <span className="text-xs text-white font-bold">
+                      {admin.full_name?.charAt(0)?.toUpperCase() || 'A'}
+                    </span>
+                  </div>
+                )
               ))}
             </div>
+
             <div className="flex justify-between items-center w-full">
               <div>
                 <h3 id="chat-widget-title" className="font-bold text-sm text-white">

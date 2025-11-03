@@ -17,7 +17,6 @@ const TrafficSourcePerformance = lazy(() => import('./TrafficSourcePerformance')
 const ConversionFunnel = lazy(() => import('./ConversionFunnel').catch(() => ({ default: () => null })));
 const VisitorDataTable = lazy(() => import('./VisitorDataTable').catch(() => ({ default: () => null })));
 const ExportModal = lazy(() => import('./ExportModal').catch(() => ({ default: () => null })));
-const ChatModal = lazy(() => import('./ChatModal').catch(() => ({ default: () => null })));
 const ChatWidget = lazy(() => import('./ChatWidget').catch(() => ({ default: () => null })));
 const NotificationModal = lazy(() => import('./NotificationModal').catch(() => ({ default: () => null })));
 const TrialExpiredModal = lazy(() => import('./TrialExpiredModal').catch(() => ({ default: () => null })));

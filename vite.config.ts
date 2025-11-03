@@ -5,7 +5,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
-    const isProduction = mode === 'production';
+    const isProduction = mode === 'development';
 
     // Set NODE_ENV for the build process
     process.env.NODE_ENV = mode;

@@ -36,6 +36,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><a href="/about" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>About</a></li>
               <li><a href="/contact" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>Contact</a></li>
+              <li><a href="mailto:support@mywoki.com" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>support@mywoki.com</a></li>
               <li><Link to="/status" className={`${resolvedTheme === 'dark' ? 'text-slate-400 hover:text-white' : 'theme-text-secondary hover:theme-text-primary'} transition-colors`}>System Status</Link></li>
               {/* <li><a href="/blog" className="text-slate-400 hover:text-white transition-colors">Blog</a></li> */}
             </ul>

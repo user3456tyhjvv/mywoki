@@ -12,11 +12,14 @@ import {
   FacebookIcon,
   LinkedInIcon,
   InstagramIcon,
+  TwitterIcon,
   PaletteIcon,
   MyWokiLogo,
   OutreachIcon
 } from './Icons';
 import { Link } from 'react-router-dom';
+import { XIcon } from 'lucide-react';
+
 
 interface PricingPlan {
   name: string;
@@ -77,7 +80,7 @@ const pricingPlans: Record<string, PricingPlan> = {
     price: '$19',
     monthlyPrice: 19,
     pageviews: '50,000/month',
-    features: ['Everything in Starter', '6-month data retention', 'Advanced filters',  'White-label reports', 'Priority support'],
+    features: ['Everything in Starter', '6-month data retention', 'Advanced filters', 'White-label reports', 'Priority support'],
     cta: 'Start Free Trial',
     popular: true,
     trial: true
@@ -173,7 +176,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
     const now = new Date();
     const timeDiff = trialEnd.getTime() - now.getTime();
     const daysRemaining = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    
+
     return {
       days_remaining: Math.max(0, daysRemaining),
       is_trial_expired: daysRemaining <= 0
@@ -289,7 +292,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
      ------------------------- */
   const getPlanButtonState = (planKey: string) => {
     const plan = pricingPlans[planKey];
-    
+
     console.log(`🔍 getPlanButtonState called for: ${planKey}`, {
       user: !!user,
       userPlanInfo: userPlanInfo,
@@ -455,7 +458,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
           isCurrent: true
         };
       }
-      
+
       // For paid plans (Starter, Pro, Business) - show upgrade
       if (isPaidPlan) {
         return {
@@ -547,7 +550,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
       } else if (userPlanInfo.is_trial_expired) {
         return {
           message: ' Your free trial has ended. Upgrade to continue using premium features.',
-          type: 'warning', 
+          type: 'warning',
           className: 'bg-amber-500/20 border border-amber-400 text-amber-300'
         };
       } else {
@@ -682,7 +685,8 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
 
     return (
       <div>
-        <style dangerouslySetInnerHTML={{__html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -743,7 +747,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
       {showMobileWarning && (
         <div className="fixed top-0 left-0 right-0 z-50 bg-amber-500 text-slate-900 p-4 text-center shadow-lg">
           <div className="flex items-center justify-center gap-3">
-            <span className="font-semibold">⚠️ Mobile Experience Limited</span>
+            <span className="font-semibold">Mobile Experience Limited</span>
             <span>This app is optimized for desktop. Some features may not work properly on mobile devices.</span>
             <button
               onClick={() => setShowMobileWarning(false)}
@@ -797,10 +801,10 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
       <main className="pt-28 pb-20">
         <section className="max-w-6xl mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Understand your <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-cyan-500">business traffic</span> — with privacy.
+            Understand your <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-cyan-500">business traffic</span> — that helps you Scale,Market and grow your Audience.
           </h1>
           <p className="max-w-3xl mx-auto text-lg text-slate-300 mb-8">
-            Modern analytics with AI-driven recommendations, conversion insights, and simple pricing — no complexity, no data fishing.
+            A Modern AI-driven Engine that helps you understand your audience,How to maximize your reach and engagement filled with endless possiblities for your business.
           </p>
 
           {/* Domain CTA */}
@@ -829,9 +833,8 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                 return (
                   <div
                     key={index}
-                    className={`absolute w-64 h-40 rounded-lg overflow-hidden shadow-lg border-2 transition-all duration-500 ${
-                      isActive ? 'border-cyan-400 scale-110' : 'border-slate-600 scale-90'
-                    }`}
+                    className={`absolute w-64 h-40 rounded-lg overflow-hidden shadow-lg border-2 transition-all duration-500 ${isActive ? 'border-cyan-400 scale-110' : 'border-slate-600 scale-90'
+                      }`}
                     style={{
                       transform: `translate(${x}px, ${y}px)`,
                       left: '50%',
@@ -871,7 +874,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
         <section id="targeting" className="max-w-6xl mx-auto px-6 mt-32 py-16 bg-gradient-to-br from-purple-900/20 to-indigo-900/40 rounded-2xl border border-purple-700/50">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Data-Driven Targeting</h2>
-            <p className="text-slate-300 max-w-3xl mx-auto">We use your organization's data to identify the perfect audience, optimize your traffic sources, and drive qualified visitors straight to your business.</p>
+            <p className="text-slate-300 max-w-3xl mx-auto">We use our AI engine to analyze  organization/business  data to identify the perfect audience, optimize your traffic sources, and drive qualified audience straight to your business.</p>
           </div>
 
           <div className="relative">
@@ -934,7 +937,8 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
 
             {/* Horizontal scrolling reviews carousel */}
             <div className="mt-8 relative overflow-hidden">
-              <style dangerouslySetInnerHTML={{__html: `
+              <style dangerouslySetInnerHTML={{
+                __html: `
                 @keyframes scroll-reviews {
                   0% { transform: translateX(0); }
                   100% { transform: translateX(-50%); }
@@ -1225,7 +1229,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold">Simple, transparent pricing</h2>
             {!user && <p className="text-slate-300 mt-2">Start with a 14-day free trial — no credit card required.</p>}
-            
+
             {/* User status banner */}
             {userStatusMessage && (
               <div className="mt-4 max-w-md mx-auto">
@@ -1244,14 +1248,12 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
               const isCurrentPlan = buttonState.isCurrent;
 
               return (
-                <div 
-                  key={key} 
-                  onClick={() => !buttonState.disabled && handlePlanSelect(key)} 
-                  className={`p-6 rounded-xl border ${
-                    plan.popular ? 'border-cyan-400 scale-105 shadow-2xl' : 'border-slate-700'
-                  } bg-slate-800 ${
-                    buttonState.disabled ? 'cursor-not-allowed opacity-90' : 'cursor-pointer hover:border-slate-500'
-                  } transition-all duration-200`}
+                <div
+                  key={key}
+                  onClick={() => !buttonState.disabled && handlePlanSelect(key)}
+                  className={`p-6 rounded-xl border ${plan.popular ? 'border-cyan-400 scale-105 shadow-2xl' : 'border-slate-700'
+                    } bg-slate-800 ${buttonState.disabled ? 'cursor-not-allowed opacity-90' : 'cursor-pointer hover:border-slate-500'
+                    } transition-all duration-200`}
                 >
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-xl font-semibold">{plan.name}</h3>
@@ -1287,9 +1289,8 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                         }
                       }}
                       disabled={buttonState.disabled}
-                      className={`w-full py-3 rounded-lg font-semibold transition-all ${buttonState.className} ${
-                        buttonState.disabled ? '' : 'hover:scale-105'
-                      }`}
+                      className={`w-full py-3 rounded-lg font-semibold transition-all ${buttonState.className} ${buttonState.disabled ? '' : 'hover:scale-105'
+                        }`}
                     >
                       {buttonState.text}
                     </button>
@@ -1322,7 +1323,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
             <ul className="space-y-2 text-slate-400 text-sm">
               <li><button onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>Features</button></li>
               <li><button onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>Pricing</button></li>
-            <li><Link to="/status" className='theme-text-secondary hover:theme-text-primary transition-colors'>System Status</Link></li>
+              <li><Link to="/status" className='theme-text-secondary hover:theme-text-primary transition-colors'>System Status</Link></li>
             </ul>
           </div>
 
@@ -1330,10 +1331,11 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
             <h4 className="text-sm font-semibold text-slate-200 mb-3 uppercase">Company</h4>
             <ul className="space-y-2 text-slate-400 text-sm">
               <li><button onClick={() => onNavigate('contact')}>Contact</button></li>
+              <li><a href="mailto:support@mywoki.com" className='theme-text-secondary hover:theme-text-primary transition-colors'>support@mywoki.com</a></li>
               <li><button onClick={() => onNavigate('privacy')}>Privacy</button></li>
               <li><button onClick={() => onNavigate('terms')}>Terms</button></li>
               <li><a href="/about" className='theme-text-secondary hover:theme-text-primary transition-colors'>About</a></li>
-              
+
             </ul>
           </div>
 
@@ -1341,8 +1343,24 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
             <h4 className="text-sm font-semibold text-slate-200 mb-3 uppercase">Follow</h4>
             <div className="flex items-center gap-3">
               <a href="#" className="p-2 rounded-md bg-white/5"><FacebookIcon className="w-5 h-5 text-slate-200" /></a>
-              <a href="#" className="p-2 rounded-md bg-white/5"><LinkedInIcon className="w-5 h-5 text-slate-200" /></a>
+              <a href="https://www.linkedin.com/company/mywoki" className="p-2 rounded-md bg-white/5"><LinkedInIcon className="w-5 h-5 text-slate-200" /></a>
               <a href="#" className="p-2 rounded-md bg-white/5"><InstagramIcon className="w-5 h-5 text-slate-200" /></a>
+              <a
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-md bg-white/5 hover:bg-white/10 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1200 1227"
+                  className="w-5 h-5 fill-slate-200"
+                >
+                  <path d="M714 519L1160 0H1051L673 442 377 0H0L466 682 0 1227H109L510 755 836 1227H1200L714 519zM180 80H301L1020 1147H899L180 80z" />
+                </svg>
+              </a>
+
+
             </div>
             <div className="text-slate-400 text-xs mt-4">© {new Date().getFullYear()} mywoki</div>
           </div>

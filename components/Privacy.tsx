@@ -41,7 +41,7 @@ const Privacy: React.FC<PrivacyProps> = ({ onNavigate }) => {
           <p>You have the right to access, update, or delete your personal information. You may also opt out of certain communications at any time.</p>
 
           <h2>Changes to This Policy</h2>
-          <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.</p>
+          <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date. In case of queries contact us at support@mywoki.com</p>
 
           <p className="text-sm text-slate-400 mt-8">Last updated: January 2024</p>
         </div>

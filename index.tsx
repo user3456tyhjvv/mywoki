@@ -6,16 +6,6 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { NetworkProvider } from './contexts/NetworkContext';
 import ErrorBoundary from './components/ErrorBoundary';
 
-// if (process.env.NODE_ENV === 'production') {
-//   // Override console methods to hide logs in production
-//   if (typeof window !== 'undefined') {
-//     window.console.log = () => {};
-//     window.console.info = () => {};
-//     window.console.warn = () => {};
-//     window.console.error = () => {};
-//     window.console.debug = () => {};
-//   }
-// }
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
