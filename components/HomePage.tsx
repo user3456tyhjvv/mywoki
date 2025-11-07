@@ -1,5 +1,6 @@
 // HomePage.tsx
 import React, { useState, useEffect, FormEvent, useRef } from 'react';
+import Feedback from './Feedback'; 
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import {
@@ -743,6 +744,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
 
   return (
     <div className={`min-h-screen ${heroGradient} text-slate-100`}>
+      <Feedback />
       {/* Mobile Warning Banner */}
       {showMobileWarning && (
         <div className="fixed top-0 left-0 right-0 z-50 bg-amber-500 text-slate-900 p-4 text-center shadow-lg">
@@ -1342,11 +1344,11 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
           <div>
             <h4 className="text-sm font-semibold text-slate-200 mb-3 uppercase">Follow</h4>
             <div className="flex items-center gap-3">
-              <a href="https://web.facebook.com/mywoki" className="p-2 rounded-md bg-white/5"><FacebookIcon className="w-5 h-5 text-slate-200" /></a>
+              <a href="#" className="p-2 rounded-md bg-white/5"><FacebookIcon className="w-5 h-5 text-slate-200" /></a>
               <a href="https://www.linkedin.com/company/mywoki" className="p-2 rounded-md bg-white/5"><LinkedInIcon className="w-5 h-5 text-slate-200" /></a>
-              <a href="https://www.instagram.com/mywoki" className="p-2 rounded-md bg-white/5"><InstagramIcon className="w-5 h-5 text-slate-200" /></a>
+              <a href="#" className="p-2 rounded-md bg-white/5"><InstagramIcon className="w-5 h-5 text-slate-200" /></a>
               <a
-                href="https://x.com/mywokiB2B"
+                href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-md bg-white/5 hover:bg-white/10 transition"
@@ -1398,4 +1400,5 @@ function TargetingStep({ step, title, desc, icon, delay }: { step: string; title
       <p className="text-slate-300 text-sm leading-relaxed">{desc}</p>
     </div>
   );
+
 }

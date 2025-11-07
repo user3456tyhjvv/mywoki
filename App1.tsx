@@ -24,6 +24,7 @@ const ScrapingDashboard = lazy(() => import('./components/ScrapingDashboard'));
 const ReviewsPage = lazy(() => import('./components/ReviewsPage'));
 const About = lazy(() => import('./components/About'));
 const NotFound = lazy(() => import('./components/NotFound'));
+const Feedback = lazy(() => import('./components/Feedback'));
 
 
 // Loading component for Suspense fallback
@@ -35,6 +36,7 @@ const LoadingSpinner = () => (
     </div>
   </div>
 );
+
 
 const App1Routes: React.FC = () => {
   const navigate = useNavigate();
@@ -152,7 +154,8 @@ const App1Routes: React.FC = () => {
         <Route path="/data-dashboard-protected" element={<DataDashboard />} />
         <Route path="/reviews" element={<ReviewsPage onNavigate={handleNavigate} />} />
         <Route path="/about" element={<About onNavigate={handleNavigate} />} />
-        <Route path="*" element={<NotFound />} />
+  <Route path="*" element={<NotFound />} />
+  <Route path="/feedback" element={<Feedback />} />
       </Routes>
 
       {/* Trial Expired Modal */}
