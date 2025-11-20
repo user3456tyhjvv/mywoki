@@ -674,3 +674,85 @@ const generateAttachments = (screenshots: EmailReportData['screenshots']) => {
 
   return attachments;
 };
+
+// --- Team & Meeting email helpers ---
+
+// Sends a team invite email via server-side transactional email endpoint.
+// This function is a thin client-side helper that calls your server API.
+// The server should send the actual email (to avoid exposing API keys in the client).
+export async function sendTeamInviteEmail(opts: {
+    to: string;
+    inviterName: string;
+    teamName: string;
+    acceptUrl: string; // link the user clicks to accept invite
+    message?: string;
+}) {
+    const { to, inviterName, teamName, acceptUrl, message } = opts;
+
+    const subject = `${inviterName} invited you to join ${teamName}`;
+    const body = `
+        <p>Hi,</p>
+        <p><strong>${inviterName}</strong> has invited you to join the team <strong>${teamName}</strong>.</p>
+        ${message ? `<p>Message from ${inviterName}: ${message}</p>` : ''}
+        <p><a href="${acceptUrl}" style="display:inline-block;padding:12px 20px;background:#2563eb;color:#fff;border-radius:6px;text-decoration:none">Accept invitation</a></p>
+        <p>If the button doesn't work, copy and paste this link into your browser: <br/>${acceptUrl}</p>
+        <p>Thanks,<br/>The ${teamName} team</p>
+    `;
+
+    try {
+        const backendUrl = getBackendUrl();
+        const apiUrl = `${backendUrl}/api/send-email`;
+        const res = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ to, subject, html: body }),
+        });
+        if (!res.ok) throw new Error((await res.text()) || 'Failed to send invite email');
+        return { success: true };
+    } catch (err: any) {
+        console.error('sendTeamInviteEmail error', err);
+        return { success: false, error: err?.message || String(err) };
+    }
+}
+
+// Sends a meeting invitation email via server-side transactional email endpoint.
+export async function sendMeetingInviteEmail(opts: {
+    to: string;
+    organizerName: string;
+    teamName: string;
+    meetingTitle: string;
+    meetingTimeISO: string; // ISO datetime
+    joinUrl: string;
+    passcode?: string;
+    message?: string;
+}) {
+    const { to, organizerName, teamName, meetingTitle, meetingTimeISO, joinUrl, passcode, message } = opts;
+
+    const subject = `${organizerName} scheduled a meeting: ${meetingTitle}`;
+    const meetingTime = new Date(meetingTimeISO).toLocaleString();
+    const body = `
+        <p>Hi,</p>
+        <p><strong>${organizerName}</strong> scheduled a meeting for team <strong>${teamName}</strong>:</p>
+        <p><strong>${meetingTitle}</strong><br/>When: ${meetingTime}</p>
+        ${passcode ? `<p>Passcode: <code>${passcode}</code></p>` : ''}
+        ${message ? `<p>Message: ${message}</p>` : ''}
+        <p><a href="${joinUrl}" style="display:inline-block;padding:12px 20px;background:#2563eb;color:#fff;border-radius:6px;text-decoration:none">Join meeting</a></p>
+        <p>If the button doesn't work, copy and paste this link into your browser: <br/>${joinUrl}</p>
+        <p>Thanks,<br/>${organizerName}</p>
+    `;
+
+    try {
+        const backendUrl = getBackendUrl();
+        const apiUrl = `${backendUrl}/api/send-email`;
+        const res = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ to, subject, html: body }),
+        });
+        if (!res.ok) throw new Error((await res.text()) || 'Failed to send meeting email');
+        return { success: true };
+    } catch (err: any) {
+        console.error('sendMeetingInviteEmail error', err);
+        return { success: false, error: err?.message || String(err) };
+    }
+}

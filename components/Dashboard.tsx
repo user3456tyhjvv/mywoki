@@ -42,9 +42,9 @@ if (typeof window !== 'undefined') {
 }
 
 import {
-  UsersIcon, UserPlusIcon, UserRefreshIcon, BounceIcon,
+  UsersIcon, UserPlusIcon, RefreshIcon, BounceIcon,
   TimerIcon, PagesIcon, ArrowLeftIcon, ChartBarIcon,
-  ShieldCheckIcon, RefreshIcon, DownloadIcon,
+  ShieldCheckIcon, DownloadIcon,
   CalendarIcon, TrendingUpIcon, ClockIcon, BellIcon,
   ChatBubbleLeftRightIcon
 } from './Icons';
@@ -767,7 +767,7 @@ const Dashboard: React.FC<DashboardProps> = ({
                 </Suspense>
                 <Suspense fallback={<div className={`rounded-2xl p-6 ${getThemeClasses.card()}`}>Loading...</div>}>
                   <MetricCard
-                    icon={<UserRefreshIcon className="w-5 h-5" />}
+                    icon={<RefreshIcon className="w-5 h-5" />}
                     label="Returning Visitors"
                     timeRange={timeRange}
                     value={trafficData?.returningVisitors.toLocaleString() || '0'}
@@ -957,13 +957,10 @@ const Dashboard: React.FC<DashboardProps> = ({
         <NotificationModal
           isOpen={showNotificationModal}
           onClose={() => setShowNotificationModal(false)}
-          notifications={notifications}
-          messages={messages}
-          onMarkAsRead={markNotificationAsRead}
+          items={notifications}
+          onMarkAsRead={handleMarkAsRead}
           onMarkAllAsRead={handleMarkAllAsRead}
           onDeleteNotification={handleDeleteNotification}
-          onMarkMessageAsRead={markMessageAsRead}
-          onMarkAllMessagesAsRead={handleMarkAllMessagesAsRead}
         />
       )}
 

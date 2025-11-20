@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Theme = 'light' | 'dark' | 'default';
+import type { Theme } from '../types';
+
+export { Theme };
 
 interface ThemeContextType {
   theme: Theme;
@@ -23,24 +25,33 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setThemeState] = useState<Theme>('dark');
-  const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme') as Theme;
+    }
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  });
 
-  // Always set to dark theme
+  const resolvedTheme = theme as 'light' | 'dark';
+
   useEffect(() => {
-    setResolvedTheme('dark');
-    document.documentElement.setAttribute('data-theme', 'dark');
-    document.documentElement.className = 'dark';
-  }, []);
+    const root = window.document.documentElement;
+    root.classList.remove('light', 'dark');
+    root.classList.add(resolvedTheme);
+    localStorage.setItem('theme', theme);
+  }, [theme, resolvedTheme]);
 
   const setTheme = (newTheme: Theme) => {
-    // Disabled: always dark
+    setThemeState(newTheme);
   };
 
   const value: ThemeContextType = {
-    theme: 'dark',
+    theme,
     setTheme,
-    resolvedTheme: 'dark',
+    resolvedTheme,
   };
 
   return (

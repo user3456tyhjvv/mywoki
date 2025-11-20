@@ -29,6 +29,7 @@ export interface ExitPageAnalysis {
   averageTimeOnPage: number;
   suggestions: string[];
 }
+export type Theme = 'light' | 'dark';
 
 export interface TrafficSourceAnalysis {
   source: string;
@@ -124,12 +125,19 @@ export interface Notification {
   user_id: string;
   title: string;
   message: string;
-  type: 'info' | 'warning' | 'error' | 'success';
+  type: 'info' | 'warning' | 'error' | 'success' | 'team_invite' | 'invite_accepted';
   read: boolean;
   sent_by?: string;
   created_at: string;
   action_url?: string;
   action_text?: string;
+  data?: {
+    invite_id?: string;
+    team_id?: string;
+    inviter_id?: string;
+    user_id?: string;
+    [key: string]: any;
+  };
 }
 
 export interface Trial {
@@ -229,13 +237,3 @@ export interface ChatSession {
   userName?: string;
 }
 
-export interface Notification {
-  id: string;
-  type: 'success' | 'warning' | 'error' | 'info';
-  title: string;
-  message: string;
-  read: boolean;
-  created_at: string;
-  action_url?: string;
-  action_text?: string;
-}

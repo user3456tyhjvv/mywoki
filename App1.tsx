@@ -1,6 +1,7 @@
 import React, { useState, Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
+import { NavigationProvider } from './contexts/NavigationContext';
 import TrialExpiredModal from './components/TrialExpiredModal';
 import type { InstallationRequest } from './types';
 import Robots from './components/Robots';
@@ -25,6 +26,9 @@ const ReviewsPage = lazy(() => import('./components/ReviewsPage'));
 const About = lazy(() => import('./components/About'));
 const NotFound = lazy(() => import('./components/NotFound'));
 const Feedback = lazy(() => import('./components/Feedback'));
+const NewDashboard = lazy(() => import('./components/NewDashboard'));
+const AcceptInvite = lazy(() => import('./components/AcceptInvite'));
+const Profile = lazy(() => import('./components/Profile'));
 
 
 // Loading component for Suspense fallback
@@ -141,6 +145,9 @@ const App1Routes: React.FC = () => {
         <Route path="/checkout" element={<PayPalCheckout plan="premium" />} />
         <Route path="/robots.txt" element={<Robots />} />
         <Route path="/docs" element={<Documentation />} />
+        <Route path="/new-dashboard" element={<NewDashboard />} />
+        <Route path="/settings" element={<Profile />} />
+        <Route path="/team/invite/accept" element={<AcceptInvite />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/status" element={<StatusPage />} />
         <Route path="/OpenSource" element={<ScrapingDashboard onNavigate={handleNavigate} />} />
@@ -175,9 +182,11 @@ const App1Routes: React.FC = () => {
 const App1: React.FC = () => {
   return (
     <BrowserRouter>
-      {/* Include structured data for SEO */}
-      <Robots />
-      <App1Routes />
+      <NavigationProvider>
+        {/* Include structured data for SEO */}
+        <Robots />
+        <App1Routes />
+      </NavigationProvider>
     </BrowserRouter>
   );
 };

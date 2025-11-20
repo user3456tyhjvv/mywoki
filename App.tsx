@@ -13,7 +13,7 @@ import { useNetwork } from './contexts/NetworkContext';
 
 // Lazy load heavy components
 const Dashboard = lazy(() => import('./components/Dashboard'));
-const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
+
 const DesignDashboard = lazy(() => import('./components/DesignDashboard'));
 
 interface AppProps {

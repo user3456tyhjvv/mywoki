@@ -16,11 +16,15 @@ import {
   TwitterIcon,
   PaletteIcon,
   MyWokiLogo,
-  OutreachIcon
+  OutreachIcon,
+  YouTubeIcon,
+  TikTokIcon,
+  ThreadsIcon,
+  RedditIcon
+  
 } from './Icons';
 import { Link } from 'react-router-dom';
 import { XIcon } from 'lucide-react';
-
 
 interface PricingPlan {
   name: string;
@@ -62,7 +66,7 @@ const pricingPlans: Record<string, PricingPlan> = {
     price: '$0',
     monthlyPrice: 0,
     pageviews: '1,000/month',
-    features: ['Basic visitor analytics', '7-day data retention', 'Real-time dashboard', 'Top pages & referrers'],
+    features: ['Basic growth analytics', '7-day data retention', 'Real-time dashboard', 'Social media insights'],
     cta: 'Get Started',
     popular: false
   },
@@ -71,7 +75,7 @@ const pricingPlans: Record<string, PricingPlan> = {
     price: '$9',
     monthlyPrice: 9,
     pageviews: '10,000/month',
-    features: ['Everything in Free', '30-day data retention', 'Email reports', 'Goal tracking', 'Custom events'],
+    features: ['Everything in Free', '30-day data retention', 'Multi-platform analytics', 'Growth tracking', 'Audience insights'],
     cta: 'Start Free Trial',
     popular: false,
     trial: true
@@ -81,7 +85,7 @@ const pricingPlans: Record<string, PricingPlan> = {
     price: '$19',
     monthlyPrice: 19,
     pageviews: '50,000/month',
-    features: ['Everything in Starter', '6-month data retention', 'Advanced filters', 'White-label reports', 'Priority support'],
+    features: ['Everything in Starter', '6-month data retention', 'Advanced growth filters', 'Competitor analysis', 'Priority support'],
     cta: 'Start Free Trial',
     popular: true,
     trial: true
@@ -91,7 +95,7 @@ const pricingPlans: Record<string, PricingPlan> = {
     price: '$49',
     monthlyPrice: 49,
     pageviews: '200,000/month',
-    features: ['Everything in Pro', '1-year data retention', 'Unlimited organizations', 'Custom template designs', 'SAML/SSO', 'Dedicated support'],
+    features: ['Everything in Pro', '1-year data retention', 'Unlimited organizations', 'Custom growth strategies', 'Dedicated account manager'],
     cta: 'Start Free Trial',
     popular: false,
     trial: true
@@ -591,8 +595,6 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
     return null;
   };
 
-
-
   /* -------------------------
      Debug useEffect to monitor state changes
      ------------------------- */
@@ -624,8 +626,9 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
       '/mywoki-logo.png',
       'https://i.postimg.cc/NGdwptqT/msoo-logo.png',
       'https://i.postimg.cc/4yfsnNCX/logo-tiffad.jpg',
-      'https://i.postimg.cc/rpBckNyB/fitness-center-40dp-A7-C4-E5-FILL0-wght400-GRAD0-opsz40.png',
+      'https://i.postimg.cc/rpBckNyB/fitness-center-40dpA7C4E5FILL0wght400GRAD0opsz40.png',
       'https://i.postimg.cc/W3mRPRHZ/Vibrant-Wordmark-Logo-for-Gigatech.png',
+      
     ];
 
     const carouselRef = useRef<HTMLDivElement>(null);
@@ -770,7 +773,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
             </div>
             <div>
               <div className="text-sm sm:text-lg font-semibold">mywoki</div>
-              <div className="text-xs text-slate-400 -mt-1">Data-edge</div>
+              <div className="text-xs text-slate-400 -mt-1">Business Growth Platform</div>
             </div>
           </div>
 
@@ -803,10 +806,10 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
       <main className="pt-28 pb-20">
         <section className="max-w-6xl mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Understand your <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-cyan-500">business traffic</span> — that helps you Scale,Market and grow your Audience.
+            Grow Your Business with <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-cyan-500">Targeted Traffic</span>
           </h1>
           <p className="max-w-3xl mx-auto text-lg text-slate-300 mb-8">
-            A Modern AI-driven Engine that helps you understand your audience,How to maximize your reach and engagement filled with endless possiblities for your business.
+            We help businesses increase website traffic, grow social media followers, and maximize audience engagement across all platforms.
           </p>
 
           {/* Domain CTA */}
@@ -819,7 +822,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                 className="flex-1 px-4 py-4 rounded-xl bg-slate-800 border border-slate-700 placeholder-slate-500 focus:outline-none text-white"
                 placeholder="my-organization.com"
               />
-              <button type="submit" className="px-6 py-3 rounded-xl font-semibold text-slate-900 bg-cyan-400 hover:opacity-95 shadow-md">Get Free Analysis</button>
+              <button type="submit" className="px-6 py-3 rounded-xl font-semibold text-slate-900 bg-cyan-400 hover:opacity-95 shadow-md">Get Growth Strategy</button>
             </form>
             {error && <div className="mt-3 text-sm text-rose-400">{error}</div>}
           </div>
@@ -872,11 +875,11 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
           </div>
         </section>
 
-        {/* DATA-DRIVEN TARGETING */}
+        {/* GROWTH-DRIVEN STRATEGIES */}
         <section id="targeting" className="max-w-6xl mx-auto px-6 mt-32 py-16 bg-gradient-to-br from-purple-900/20 to-indigo-900/40 rounded-2xl border border-purple-700/50">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Data-Driven Targeting</h2>
-            <p className="text-slate-300 max-w-3xl mx-auto">We use our AI engine to analyze  organization/business  data to identify the perfect audience, optimize your traffic sources, and drive qualified audience straight to your business.</p>
+            <h2 className="text-3xl font-bold text-white mb-4">Growth-Driven Strategies</h2>
+            <p className="text-slate-300 max-w-3xl mx-auto">Our AI-powered platform identifies high-potential audiences, optimizes your content for maximum reach, and drives qualified traffic across all digital channels.</p>
           </div>
 
           <div className="relative">
@@ -886,29 +889,29 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <TargetingStep
                 step="1"
-                title="Data Analysis"
-                desc="We analyze your existing traffic patterns, user behavior, and conversion data to understand your audience."
+                title="Market Research"
+                desc="Analyze industry trends, competitor strategies, and audience behavior to identify high-growth opportunities."
                 icon={<ChartBarIcon className="w-8 h-8 text-purple-400" />}
                 delay="0"
               />
               <TargetingStep
                 step="2"
-                title="Audience Profiling"
-                desc="Identify key demographics, interests, and behaviors of your ideal customers from the data insights."
+                title="Audience Targeting"
+                desc="Identify and segment your ideal audience across platforms with precision targeting capabilities."
                 icon={<UsersIcon className="w-8 h-8 text-cyan-400" />}
                 delay="200"
               />
               <TargetingStep
                 step="3"
-                title="Traffic Optimization"
-                desc="Optimize your marketing channels and content to attract the right visitors at the right time."
-                icon={<TrendingUpIcon className="w-8 h-8 text-indigo-400" />}
+                title="Content Optimization"
+                desc="Generate platform-specific content strategies optimized for maximum engagement and virality."
+                icon={<PaletteIcon className="w-8 h-8 text-indigo-400" />}
                 delay="400"
               />
               <TargetingStep
                 step="4"
-                title="Conversion Driving"
-                desc="Guide qualified traffic through your site with personalized experiences that convert visitors to customers."
+                title="Traffic Generation"
+                desc="Execute multi-channel campaigns to drive targeted traffic to your website and social media profiles."
                 icon={<OutreachIcon className="w-8 h-8 text-emerald-400" />}
                 delay="600"
               />
@@ -917,8 +920,87 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
 
           <div className="mt-12 text-center">
             <div className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold shadow-lg">
-              <SparklesIcon className="w-5 h-5" />
-              AI-Powered Insights for Maximum Growth
+              
+              AI-Powered Growth Engine
+            </div>
+          </div>
+        </section>
+
+        {/* SOCIAL MEDIA GROWTH */}
+        <section id="social-growth" className="max-w-6xl mx-auto px-6 mt-32 py-16">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6">Grow Across All Platforms</h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Our platform helps you increase followers, engagement, and conversions on every major social media platform.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            <PlatformCard 
+              platform="YouTube" 
+              icon={<YouTubeIcon className="w-10 h-10 text-red-500" />}
+              stats="2.5M+ views"
+              description="Optimize video content for maximum visibility and channel growth"
+            />
+            <PlatformCard 
+              platform="Instagram" 
+              icon={<InstagramIcon className="w-10 h-10 text-pink-500" />}
+              stats="150K+ followers"
+              description="Create engaging content strategies for brand growth"
+            />
+            <PlatformCard 
+              platform="TikTok" 
+              icon={<TikTokIcon className="w-10 h-10 text-black" />}
+              stats="500K+ views"
+              description="Leverage trending formats for viral potential"
+            />
+            <PlatformCard 
+              platform="LinkedIn" 
+              icon={<LinkedInIcon className="w-10 h-10 text-blue-600" />}
+              stats="30K+ connections"
+              description="Grow your professional network and B2B audience"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-slate-800/80 via-slate-900/60 to-slate-800/80 rounded-2xl p-8 border border-slate-700/50">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+                  <FacebookIcon className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Facebook Growth</h3>
+              </div>
+              <p className="text-slate-300 mb-6">Our AI analyzes your page performance, identifies high-engagement content types, and creates targeted ad strategies to grow your audience.</p>
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="bg-slate-700/50 p-3 rounded-lg">
+                  <div className="text-cyan-400 font-bold">25%</div>
+                  <div className="text-slate-400">Engagement boost</div>
+                </div>
+                <div className="bg-slate-700/50 p-3 rounded-lg">
+                  <div className="text-cyan-400 font-bold">15K+</div>
+                  <div className="text-slate-400">Monthly followers</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-slate-800/80 via-slate-900/60 to-slate-800/80 rounded-2xl p-8 border border-slate-700/50">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+                  <TwitterIcon className="w-6 h-6 text-blue-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Twitter Growth</h3>
+              </div>
+              <p className="text-slate-300 mb-6">We optimize your content strategy for maximum reach, identify trending topics, and help you build meaningful connections with your audience.</p>
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="bg-slate-700/50 p-3 rounded-lg">
+                  <div className="text-cyan-400 font-bold">30%</div>
+                  <div className="text-slate-400">Follower growth</div>
+                </div>
+                <div className="bg-slate-700/50 p-3 rounded-lg">
+                  <div className="text-cyan-400 font-bold">1.2M+</div>
+                  <div className="text-slate-400">Monthly impressions</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -1067,27 +1149,27 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                         <span className="text-sm font-semibold text-cyan-300 uppercase tracking-wider">Core Intelligence</span>
                       </div>
                       <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors">
-                        Real-time Analytics Engine
+                        Multi-Platform Growth Engine
                       </h3>
                       <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                        See exactly where your visitors come from, what they do on your site, and which pages drive the most conversions.
-                        Our advanced tracking captures every interaction without compromising privacy.
+                        Track performance across all your digital channels, understand audience behavior, and optimize your growth strategies with real-time insights.
+                        Our platform integrates website analytics with social media performance for complete growth visibility.
                       </p>
                       <div className="grid grid-cols-2 gap-6 mb-6">
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-cyan-400">99.9%</div>
-                          <div className="text-sm text-slate-400">Accuracy Rate</div>
+                          <div className="text-2xl font-bold text-cyan-400">10+</div>
+                          <div className="text-sm text-slate-400">Platforms Supported</div>
                         </div>
                         <div className="text-center">
                           <div className="text-2xl font-bold text-purple-400">{'< 1s'}</div>
-                          <div className="text-sm text-slate-400">Response Time</div>
+                          <div className="text-sm text-slate-400">Real-time Updates</div>
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                        <span className="text-sm text-slate-400">Live tracking active</span>
+                        <span className="text-sm text-slate-400">Growth tracking active</span>
                       </div>
                       <div className="text-sm text-slate-500">24/7 monitoring</div>
                     </div>
@@ -1106,7 +1188,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                     <h4 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Smart Recommendations</h4>
                   </div>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    Our AI analyzes your data patterns and provides prioritized, actionable recommendations to boost conversions.
+                    Our AI analyzes your growth patterns and provides prioritized, actionable recommendations to boost engagement and conversions.
                   </p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-xs text-slate-400">AI Confidence</span>
@@ -1130,7 +1212,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                     <h4 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">GDPR Compliant</h4>
                   </div>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    Built with privacy at the core. No invasive tracking, no data selling, just pure analytics insights.
+                    Built with privacy at the core. No invasive tracking, no data selling, just pure growth insights.
                   </p>
                   <div className="mt-4 flex items-center gap-2">
                     <div className="w-4 h-4 rounded bg-green-500/20 border border-green-400/50 flex items-center justify-center">
@@ -1146,9 +1228,9 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                 <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/60 to-slate-900/40 border border-slate-700/50 hover:border-slate-600/70 transition-all duration-300 group">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h4 className="text-xl font-bold text-white group-hover:text-slate-300 transition-colors">Visitor Journey Mapping</h4>
+                      <h4 className="text-xl font-bold text-white group-hover:text-slate-300 transition-colors">Social Media Analytics</h4>
                       <p className="text-slate-300 text-sm leading-relaxed mt-2">
-                        Visualize complete user journeys, identify drop-off points, and optimize conversion funnels.
+                        Track engagement, follower growth, and content performance across all your social platforms in one dashboard.
                       </p>
                     </div>
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-700 to-slate-600 flex items-center justify-center">
@@ -1166,9 +1248,9 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                 <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/60 to-slate-900/40 border border-slate-700/50 hover:border-slate-600/70 transition-all duration-300 group">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h4 className="text-xl font-bold text-white group-hover:text-slate-300 transition-colors">Targeted Outreach</h4>
+                      <h4 className="text-xl font-bold text-white group-hover:text-slate-300 transition-colors">Audience Expansion</h4>
                       <p className="text-slate-300 text-sm leading-relaxed mt-2">
-                        Reach your ideal customers with data-driven insights and personalized marketing strategies.
+                        Identify new audience segments and create targeted campaigns to expand your reach across platforms.
                       </p>
                     </div>
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-700 to-slate-600 flex items-center justify-center">
@@ -1190,7 +1272,7 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
               <div className="inline-flex items-center gap-6 px-8 py-4 rounded-full bg-gradient-to-r from-slate-800/80 to-slate-900/80 border border-slate-700/50 backdrop-blur-sm">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-cyan-400">10K+</div>
-                  <div className="text-xs text-slate-400 uppercase tracking-wide">Organizations</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-wide">Businesses</div>
                 </div>
                 <div className="w-px h-8 bg-slate-600"></div>
                 <div className="text-center">
@@ -1314,10 +1396,10 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
               </div>
               <div>
                 <div className="text-sm sm:text-base font-semibold">mywoki</div>
-                <div className="text-xs text-slate-400">Data-edge</div>
+                <div className="text-xs text-slate-400">Business Growth Platform</div>
               </div>
             </div>
-            <p className="text-slate-400 text-sm max-w-sm">Simple, powerful analytics for everyone. Understand your organization workability without the complexity.</p>
+            <p className="text-slate-400 text-sm max-w-sm">Grow your business with data-driven insights. Increase website traffic, social media followers, and audience engagement across all platforms.</p>
           </div>
 
           <div>
@@ -1361,8 +1443,6 @@ export default function HomePage({ onNavigate, onDomainSubmit }: HomePageProps) 
                   <path d="M714 519L1160 0H1051L673 442 377 0H0L466 682 0 1227H109L510 755 836 1227H1200L714 519zM180 80H301L1020 1147H899L180 80z" />
                 </svg>
               </a>
-
-
             </div>
             <div className="text-slate-400 text-xs mt-4">© {new Date().getFullYear()} mywoki</div>
           </div>
@@ -1401,4 +1481,27 @@ function TargetingStep({ step, title, desc, icon, delay }: { step: string; title
     </div>
   );
 
+}
+
+function PlatformCard({ 
+  platform, 
+  icon, 
+  stats, 
+  description 
+}: { 
+  platform: string; 
+  icon: React.ReactNode; 
+  stats: string; 
+  description: string; 
+}) {
+  return (
+    <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/40 rounded-xl p-6 border border-slate-700/50 hover:border-cyan-400/30 transition-all duration-300">
+      <div className="flex items-center gap-4 mb-4">
+        {icon}
+        <h4 className="text-xl font-bold text-white">{platform}</h4>
+      </div>
+      <div className="text-2xl font-bold text-cyan-300 mb-2">{stats}</div>
+      <p className="text-slate-300">{description}</p>
+    </div>
+  );
 }
